@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+:root {
+  --soft-red: hsl(10, 79%, 65%);
+  --soft-light-red: hsl(10, 79%, 75%);
+  --cyan: hsl(186, 34%, 60%);
+  --cyan-light: hsl(186, 34%, 70%);
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+html {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--cream);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.balance {
+  background: var(--soft-red);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--very-pale-orange);
+}
+
+.balance-left h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.balance-left h2 {
+  font-size: 0.8rem;
+}
+
+img {
+  width: 60px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.card {
+  background: var(--very-pale-orange);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  width: 100%;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--cream);
+}
+
+.chart-bar {
+  width: 12%;
+  background-color: var(--soft-red);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.chart-bar.active {
+  background-color: var(--cyan);
+}
+.chart-bar.active:hover {
+  background-color: var(--cyan-light);
+}
+
+.chart-bar::before,
+.chart-bar.active::before {
+  content: attr(data-value);
+  display: none;
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: var(--dark-brown);
+  color: var(--very-pale-orange);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.chart-bar:hover::before,
+.chart-bar.active::before {
+  display: block;
+}
+
+.chart-bar:hover {
+  background: var(--soft-light-red);
+  cursor: pointer;
+}
+
+.chart-label {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--medium-brown);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.total-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.total-left h2 {
+  color: var(--medium-brown);
+  font-size: 0.8rem;
+}
+.total-left h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.total-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.total-right h2 {
+  font-weight: bold;
+}
+.total-right h3 {
+  color: var(--medium-brown);
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .total-left h3 {
+    font-size: 1.6rem;
+  }
+}
